@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Surprise</title>
+  <style>
+    body {
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      background-color: pink;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      width: 100vh;
+      }
+
+    h1 {
+      color: red;
+    }
+
+    .buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      width: 400px;
+      height: 150px;
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .yes {
+      background-color: lightgreen;
+    }
+
+    .no {
+      background-color: lightcoral;
+    }
+
+    #act {
+      width: 200px;
+      height: 80px;
+      display: none;
+      background-color: gray;
+      color: white;
+          width: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="msjfinal">Shelsy Antonia <br>¿Quieres ser mi cita <br>de San Valentín?🥰</h1>
+  <div class="buttons" id="buttons">
+    <h1 style="color:black" id="message">¡Que dices!</h1>
+
+    <button id="yes" class="yes" onclick="showMessage(&#39;yes&#39;)">SI</button><br>
+    <button id="no" class="no" onclick="showMessage(&#39;no&#39;)">NO</button>
+  </div>
+  <div id="imgsi" style="display: none;">    
+      <video class="video-fluid z-depth-1" loop="" controls="" muted="">
+        <source src="auron si.mp4" type="video/mp4">
+      </video>
+  </div>
+  <div id="imgno" style="display: none;">    
+        <iframe width="560" height="315" src="./1index_files/y_dYsY8m-PE.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen=""></iframe>
+  </div>
+
+  <button id="act" onclick="location.reload()">REINICIAR</button>
+
+  <script>
+    let yesCount = 0;
+    let noCount = 0;
+    const messages = {
+      yes: [
+        "¿Neta me lo juras?💖",
+        "¿Deberitas deberitas?😊",
+        "¿No me engañas?🥰",
+        "Entonces, ¿Esa es tu respuesta final? 💕"
+      ],
+      no: [
+        "¿Por qué no quieres? 😢",
+        "Eres mala, di que sí. 💔",
+        "¿Ni como amiguis?😢",        
+        "¡Respuesta final, sí o no! "
+      ]
+    };
+
+    function showMessage(choice) {
+      let noButton = document.getElementById("no");
+      let yesButton = document.getElementById("yes");
+
+      let noWidth = parseFloat(window.getComputedStyle(noButton).width);
+      let noHeight = parseFloat(window.getComputedStyle(noButton).height);
+      let noFontSize = parseFloat(window.getComputedStyle(noButton).fontSize);
+
+      let yesWidth = parseFloat(window.getComputedStyle(yesButton).width);
+      let yesHeight = parseFloat(window.getComputedStyle(yesButton).height);
+      let yesFontSize = parseFloat(window.getComputedStyle(yesButton).fontSize);
+
+      if (choice === 'yes') {
+        document.getElementById("message").innerText = messages[choice][yesCount];
+        yesCount++;
+
+        if (yesCount === messages.yes.length+1) {
+          document.getElementById("msjfinal").innerText = "Siiiiiiuuuuuuuuuuu❤️\n El plan es \ncenita en bife \n perreo hasta el amanecer\n a donde nos lleve el viento";
+          document.getElementById("buttons").style.display = "none";
+          document.getElementById("act").style.display = "block";
+          document.getElementById("imgsi").style.display = "block";
+        }
+
+        // Aumentar tamaño del botón "Sí" y reducir "No"
+
+          yesButton.style.width = (yesWidth * 1.3) + "px";
+          yesButton.style.height = (yesHeight * 1.3) + "px";
+          yesButton.style.fontSize = (yesFontSize * 1.2) + "px";
+
+          noButton.style.width = (noWidth * 0.7) + "px";
+          noButton.style.height = (noHeight * 0.7) + "px";
+          noButton.style.fontSize = (noFontSize * 0.9) + "px";
+        
+
+      } else {
+        document.getElementById("message").innerText = messages[choice][noCount];
+        noCount++;
+
+        if (noCount === messages.no.length+1) {
+          document.getElementById("msjfinal").innerText = "Bueno\n ni modo 😢";
+          document.getElementById("buttons").style.display = "none";
+          document.getElementById("act").style.display = "block";
+          document.getElementById("imgno").style.display = "block";
+        }
+
+        // Reducir tamaño del botón "No" y aumentar "Sí"
+        
+          noButton.style.width = (noWidth * 0.7) + "px";
+          noButton.style.height = (noHeight * 0.7) + "px";
+          noButton.style.fontSize = (noFontSize * 0.9) + "px";
+        
+
+        
+          yesButton.style.width = (yesWidth * 1.3) + "px";
+          yesButton.style.height = (yesHeight * 1.3) + "px";
+          yesButton.style.fontSize = (yesFontSize * 1.2) + "px";
+        
+      }
+    }
+  </script>
+
+
+</body></html>
